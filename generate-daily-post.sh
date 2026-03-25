@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # OpenClaw Daily Blog Generator
-# 生成每日博客文章
+# 生成每日博客文章到 docs 目录
 
 DATE=$(date +%Y-%m-%d)
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 
 # 创建今日目录
-mkdir -p posts/$YEAR/$MONTH
+mkdir -p docs/$YEAR/$MONTH
 
 # 检查是否有今日的 memory 文件
 if [ -f "/Users/lee/.openclaw/workspace-commander/memory/$DATE.md" ]; then
@@ -28,7 +28,7 @@ if [ -f "/Users/lee/.openclaw/workspace-commander/memory/$DATE.md" ]; then
     fi
     
     # 生成博客文章
-    cat > "posts/$DATE-daily-summary.md" << EOF
+    cat > "docs/$DATE-daily-summary.md" << EOF
 # $DATE - OpenClaw 日常记录
 
 > 自动化生成的每日总结
@@ -44,7 +44,7 @@ $NEW_SKILLS
 *本文由 OpenClaw 自动化系统生成*
 EOF
     
-    echo "Generated daily post for $DATE"
+    echo "Generated daily post for $DATE in docs directory"
 else
     echo "No memory file found for $DATE, skipping..."
 fi
