@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工具选型指南 - 龙虾笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>龙虾笔记 v1.7</h1>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="page2.html">为什么养龙虾</a>
+            <a href="page4.html">多Agent分工</a>
+            <a href="page5.html">安全控制</a>
+        </div>
+    </div>
+    
+    <h1 class="page-title">工具选型指南</h1>
+    
+    <div class="content">
+        <blockquote>
+            <strong>总原则</strong>：如果有省事的办法，就不要用复杂的办法——当然前提是你对它的安全性有一定的了解。技术的事要么用一键安装的产品省心，要么请技术团队支持。尽量不要自己在技术层面纠结太多，否则消耗的心力比省下来的钱还多。
+        </blockquote>
+        
+        <h2>产品演进路径</h2>
+        <ul>
+            <li><strong>开源版 OpenClaw</strong>：按教程装，5分钟装完，稳定性差，报错不断</li>
+            <li><strong>EasyClaw</strong>：一键安装，界面清晰，解决了配置/稳定性/海外模型接入问题。但模型锁死，成本失控——每天20美金，烧不起</li>
+            <li><strong>开源版 OpenClaw 回归</strong>：成本可控，可接外部模型</li>
+            <li><strong>目前使用</strong>：开源版龙虾 + macmini，以及内网工具：workbuddy、box、opencalw 内网版、knot、企微智能机器人</li>
+        </ul>
+        
+        <h2>Box 产品定位补充</h2>
+        <ul>
+            <li><strong>Box 定位</strong>：具备内网连通、安全沙盒、浏览器控制等功能</li>
+            <li><strong>本质特性</strong>：仍是运行在本机的 OpenClaw 程序，非纯内网版也非云端</li>
+            <li><strong>当前限制</strong>：无法便捷配置多 Agent</li>
+        </ul>
+        
+        <h2>决策五因素（按优先级）</h2>
+        <ol>
+            <li><strong>安全性</strong>——数据隐私、权限控制</li>
+            <li><strong>可探索空间</strong>——权限开放度，能自定义多少</li>
+            <li><strong>多 Agent 设置便捷性</strong>——角色隔离、独立记忆</li>
+            <li><strong>聊天软件选择</strong>——可用性、权限、连通性</li>
+            <li><strong>Token 费用</strong>——模型调用成本</li>
+        </ol>
+        
+        <div class="theme-card">
+            <h4>🎯 核心认知</h4>
+            <p>工具是分层的——有龙虾本身的，有模型调用层的，有工具组合层的。同一需求，工具选对了事半功倍。</p>
+        </div>
+        
+        <h2>平台迁移的教训</h2>
+        <p>最大坑是从 EasyClaw 迁到开源 OpenClaw，因为 easyclaw 很难使用 app 外的模型，费用受不了（有段时间每天0刀），迁回开源 opencalw，带来很多麻烦：</p>
+        <ul>
+            <li><strong>对话记录难迁</strong>：同一 Telegram 机器人可保留对话，但记忆不同步</li>
+            <li><strong>身份信息混乱</strong>：Agent 之间互相"认错人"，配置互相覆盖，折腾很久才理顺</li>
+            <li><strong>记忆格式不同</strong>：迁移过程丢了很多上下文</li>
+        </ul>
+        <p><strong>结论</strong>：尽量不要跨平台迁移。必须迁的话，提早备份，迁移后预留足够的重新配置时间。</p>
+        
+        <h2>产品选择维度</h2>
+        <h3>维度一：本机 vs 云端</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>产品</th>
+                    <th>特点</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>本地电脑 + 开源 OpenClaw</td>
+                    <td>OpenClaw（开源版）</td>
+                    <td>数据本地可控，可深度定制，权限全开放；需要一定调试能力</td>
+                </tr>
+                <tr>
+                    <td>本地电脑 + 一键封装版</td>
+                    <td>EasyClaw、腾讯 QCloud 等</td>
+                    <td>一键安装，界面友好，封装模型，计费方式统一；省去安装调试心力</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>维度二：外网 vs 内网</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>产品</th>
+                    <th>共性特点</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>内网</td>
+                    <td>OpenClaw 内网版</td>
+                    <td>与 IWiki、KM、KNOT、Tapd 等打通方便；与互联网相对隔绝，安全性好；缺点：很多命令行不支持执行，多 Agent 配置受限</td>
+                </tr>
+                <tr>
+                    <td>内网</td>
+                    <td>Workbuddy</td>
+                    <td>AICoding 能力强，对本地操控能力强；权限隔离好，安全性好；涉及敏感信息和复杂任务优先推荐；要求电脑常年开机，可通过企微远程操控</td>
+                </tr>
+                <tr>
+                    <td>内网</td>
+                    <td>KNOT</td>
+                    <td>高度怀疑不是龙虾产品，而是智能体；与企微结合非常方便；背后可结合知识库（知识库里可以有代码，也可以有 Tapd）</td>
+                </tr>
+                <tr>
+                    <td>内网</td>
+                    <td>Box</td>
+                    <td>PCG 产品；能连通外网和内网；可方便检索浏览内网 IVK、KM、KNOT 知识库；相对安全性更可靠；浏览器操控能力强，包括下载腾讯文档文件；与企微连接很好</td>
+                </tr>
+                <tr>
+                    <td>外网</td>
+                    <td>开源 OpenClaw</td>
+                    <td>完全开源，可深度定制</td>
+                </tr>
+                <tr>
+                    <td>外网</td>
+                    <td>EasyClaw 等一键封装产品</td>
+                    <td>省去安装调试心力，界面友好</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="pagination">
+        <a href="page2.html">← 上一页</a>
+        <a href="page4.html">下一页 →</a>
+    </div>
+</body>
+</html>

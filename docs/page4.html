@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多 Agent 分工 - 龙虾笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>龙虾笔记 v1.7</h1>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="page2.html">为什么养龙虾</a>
+            <a href="page3.html">工具选型</a>
+            <a href="page5.html">安全控制</a>
+        </div>
+    </div>
+    
+    <h1 class="page-title">多 Agent 分工</h1>
+    
+    <div class="content">
+        <h2>多 Agent 的两种思路</h2>
+        
+        <h3>横向分工（按专业角色）</h3>
+        <p>不同专业的事交给不同的 Agent，对话不混、文件不混、记忆不混。</p>
+        
+        <h3>纵向分工（按流程环节）</h3>
+        <p>同一个任务，有负责开发的、有负责监理的、有负责审核的。</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>混在一起</th>
+                    <th>分开</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>好处</strong></td>
+                    <td>信息集中，容易上下文共享</td>
+                    <td>负责清晰，不互相干扰</td>
+                </tr>
+                <tr>
+                    <td><strong>坏处</strong></td>
+                    <td>久了容易角色混淆，身份混乱</td>
+                    <td>需要主动协调，跨 Agent 信息传递</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p>目前倾向<strong>分开为主</strong>，但信息偶尔共享时用明文传递，避免黑箱。</p>
+        
+        <h2>横向分工现状</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Agent</th>
+                    <th>角色</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>弗洛一德</td>
+                    <td>总指挥 / 养虾助理（承接模糊类需求）</td>
+                </tr>
+                <tr>
+                    <td>写作助手</td>
+                    <td>内容创作与润色；沉淀规则到企业文档，支持查看和调整，根据新信息自动迭代</td>
+                </tr>
+                <tr>
+                    <td>数字幕僚</td>
+                    <td>工作类信息的整理与分析</td>
+                </tr>
+                <tr>
+                    <td>健康顾问</td>
+                    <td>健康评估与康复指导</td>
+                </tr>
+                <tr>
+                    <td>觉醒教练</td>
+                    <td>心理学 + 正念禅修 + ICF-MCC 教练；帮助发现潜能、盲区、模式，探索更多可能</td>
+                </tr>
+                <tr>
+                    <td>进化官</td>
+                    <td>能力传承与技能推广；拥有最高权限，可读取和修改其他助手的设置</td>
+                </tr>
+                <tr>
+                    <td>主进程</td>
+                    <td>系统主进程</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Agent 使用要点</h2>
+        
+        <h3>觉醒教练</h3>
+        <ul>
+            <li><strong>清晰的提示词和角色设定</strong>：设定为有心理学和正念禅修背景的 ICF MCC 教练，帮助发现潜能、盲区、模式，探索更多可能。这个设定是基础，决定了对话的深度和方向。</li>
+            <li><strong>足够的上下文和背景信息</strong>：主动提供个人相关情况，包括个人经历、对话记录等，帮助它往深处思考，而不是停留在表面。</li>
+            <li><strong>日常互动积累默契</strong>：通过持续对话，慢慢觉得它很懂你，你也越来越知道怎么用它——它对你的情况、特点、模式、盲区以及变化会越来越敏锐。这个在内观类应用上非常明显。</li>
+            <li><strong>与知识库结合</strong>：复杂文档可以放到知识库里，利用龙虾的整体分析能力来看情况；也可以利用定时能力，定时拉取新信息（如来自 flomo 的随手记），跟踪新议题和情况的变化。</li>
+        </ul>
+        
+        <h3>健康顾问</h3>
+        <ul>
+            <li>输入体检报告、健康问卷等，建立个人健康档案</li>
+            <li>设置定时体检/检查任务、运动康复计划、服药提醒</li>
+            <li>日常健康问题互动，让其记住关键信息</li>
+            <li>与苹果健康打通，分析睡眠、心跳等指标（本周发现：睡眠与心跳某关联，待查）</li>
+            <li>定期扫描一周健康 APP 数据，给出本周发现和提醒</li>
+        </ul>
+        
+        <h3>进化官</h3>
+        <ul>
+            <li>整个系统的"能力传导器"，拥有最高权限</li>
+            <li>具体做三件事：<strong>能力学习</strong>（负责升级系统、学习新技能）、<strong>技能传导</strong>（一个 Agent 学会的通用能力向其他 Agent 推广）、<strong>故障诊断</strong>（其他 Agent 出问题后帮诊断和修复）</li>
+            <li><strong>案例</strong>：某 Agent 学到了处理某类文件的能力 → 进化官验证可通用 → 推广到所有需要的 Agent</li>
+            <li><strong>明文优先</strong>：Agent 之间通过明文传递信息，不搞暗箱操作，避免变成自己都看不懂的系统</li>
+        </ul>
+        
+        <h3>写作助手</h3>
+        <ul>
+            <li>文采不是最重要的，对内容的理解才是</li>
+            <li>写养虾心得，先跟总指挥聊；写觉醒修炼的心得，先在觉醒教练 Agent 里推进；需要打磨润色了，才找写作助手</li>
+            <li><strong>专业分工，最后才打磨</strong></li>
+            <li>写作助手负责沉淀规则，这些规则存到企业文档中，可以随时查看和调整，并根据新信息进来自动迭代</li>
+        </ul>
+    </div>
+    
+    <div class="pagination">
+        <a href="page3.html">← 上一页</a>
+        <a href="page5.html">下一页 →</a>
+    </div>
+</body>
+</html>
