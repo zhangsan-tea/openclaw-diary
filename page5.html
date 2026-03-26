@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全与风险控制 - 龙虾笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>龙虾笔记 v1.7</h1>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="page3.html">工具选型</a>
+            <a href="page4.html">多Agent分工</a>
+            <a href="page6.html">知识管理</a>
+        </div>
+    </div>
+    
+    <h1 class="page-title">安全与风险控制</h1>
+    
+    <div class="content">
+        <h2>敏感信息种类</h2>
+        <p>以下信息类型需要特别注意脱敏或回避：</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>类别</th>
+                    <th>示例</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>认证凭据</strong></td>
+                    <td>Token、API Key、密码、私钥</td>
+                </tr>
+                <tr>
+                    <td><strong>个人身份信息</strong></td>
+                    <td>姓名、身份证号、护照号、驾照号</td>
+                </tr>
+                <tr>
+                    <td><strong>联系方式</strong></td>
+                    <td>手机号、邮箱、家庭住址</td>
+                </tr>
+                <tr>
+                    <td><strong>财务信息</strong></td>
+                    <td>银行卡号、支付账户、社保卡号</td>
+                </tr>
+                <tr>
+                    <td><strong>健康信息</strong></td>
+                    <td>病历号、处方、医保信息</td>
+                </tr>
+                <tr>
+                    <td><strong>工作敏感信息</strong></td>
+                    <td>内网 IP、内部系统账号、安全策略详情</td>
+                </tr>
+                <tr>
+                    <td><strong>可识别身份的信息</strong></td>
+                    <td>人脸、指纹、位置轨迹、行为习惯画像</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>输入脱敏两条原则</h2>
+        <ul>
+            <li>回避上述敏感信息，不直接输入</li>
+            <li>把具体细节提炼为规律性描述，不讲细节</li>
+        </ul>
+        
+        <h2>安全操作原则</h2>
+        <ul>
+            <li><strong>风险评估先行</strong>：重要系统操作前，先评估风险度和必要性</li>
+            <li><strong>执行策略</strong>：低风险高必要性→立即执行；高风险低必要性→暂缓或寻找替代方案</li>
+            <li><strong>容错机制</strong>：配置变更前备份、重要功能保留回退版本、系统故障时降级运行</li>
+        </ul>
+        
+        <h2>其他安全要点</h2>
+        <ul>
+            <li><strong>模型选择</strong>：优先选安全策略透明的产品</li>
+            <li><strong>工具来源</strong>：避免安装来源不明的 Skill/MCP</li>
+            <li><strong>权限控制</strong>：谨慎授权，不要过度开放</li>
+            <li><strong>数据备份</strong>：重要记忆和配置定期备份</li>
+            <li><strong>区分身份</strong>：个人身份与 AI 身份分开，避免泄露</li>
+            <li><strong>涉敏任务</strong>：优先使用 Workbuddy（闭源，权限隔离好）</li>
+            <li><strong>大厂安全防护</strong>：腾讯等大厂提供了安全检测类技能、更安全的技能仓库等；Windows 版还有电脑管家等防护能力（详细请自行检索）</li>
+        </ul>
+        
+        <div class="theme-card">
+            <h4>🛡️ 安全第一</h4>
+            <p>在享受龙虾带来便利的同时，始终将安全放在首位。合理的安全边界不仅保护你的隐私和数据，也让龙虾能够更专注地为你服务。</p>
+        </div>
+    </div>
+    
+    <div class="pagination">
+        <a href="page4.html">← 上一页</a>
+        <a href="page6.html">下一页 →</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识管理实践 - 龙虾笔记</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>龙虾笔记 v1.7</h1>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="page4.html">多Agent分工</a>
+            <a href="page5.html">安全控制</a>
+            <a href="page7.html">核心主题</a>
+        </div>
+    </div>
+    
+    <h1 class="page-title">知识管理实践</h1>
+    
+    <div class="content">
+        <h2>知识 vs 记忆</h2>
+        <ul>
+            <li><strong>知识</strong>：可复用、结构化、跨会话传递的公共信息</li>
+            <li><strong>记忆</strong>：个人化、情境化、随互动积累的私人信息</li>
+        </ul>
+        <p>两者协同，但用途不同。知识用来回答问题，记忆用来理解"你是谁"。规律：知识是"知道"，记忆是"认识"。</p>
+        
+        <h2>输入格式</h2>
+        <ul>
+            <li>优先 <strong>MD 格式</strong>保存知识，结构清晰，易于检索</li>
+            <li>可通过 Skill 将 MD 转成讲述者模式（正在推敲中）</li>
+            <li>重要信息要<strong>明确说"存到 Memory 里"或"形成 skill"</strong>，养成习惯</li>
+        </ul>
+        
+        <h2>知识的类型与权重</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>特点</th>
+                    <th>执行置信度</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>结构性/原理性信息</td>
+                    <td>规律清晰，可直接指导行动</td>
+                    <td>高</td>
+                </tr>
+                <tr>
+                    <td>参考性资料</td>
+                    <td>需要结合情境判断，不能直接套用</td>
+                    <td>低，需标注来源</td>
+                </tr>
+                <tr>
+                    <td>个人经验总结</td>
+                    <td>因人而异，需要验证</td>
+                    <td>中</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>知识库打通现状</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>平台</th>
+                    <th>与龙虾的结合状态</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Observe</strong></td>
+                    <td>✅ 已能很好结合</td>
+                    <td>可直接调用</td>
+                </tr>
+                <tr>
+                    <td><strong>IMA</strong></td>
+                    <td>🔄 正在打通中</td>
+                    <td>即将支持</td>
+                </tr>
+                <tr>
+                    <td><strong>NotebookLM</strong></td>
+                    <td>⚠️ 官方无对应方法</td>
+                    <td>有民间 script，但不稳定</td>
+                </tr>
+                <tr>
+                    <td><strong>龙虾自带知识库</strong></td>
+                    <td>✅ 自身具备</td>
+                    <td>复杂文档可存入</td>
+                </tr>
+                <tr>
+                    <td><strong>临时内容</strong></td>
+                    <td>✅ memory 或指定文件夹</td>
+                    <td>临时性内容存在 memory 或特定文件夹</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>OpenClaw 与知识库打通</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>平台</th>
+                    <th>作用</th>
+                    <th>特点</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>KNOT</strong></td>
+                    <td>内网知识库</td>
+                    <td>直接调用内网信息，安全性好；与企微结合方便</td>
+                </tr>
+                <tr>
+                    <td><strong>IWiki / KM</strong></td>
+                    <td>内网文档检索</td>
+                    <td>查内网资料方便</td>
+                </tr>
+                <tr>
+                    <td><strong>Box</strong></td>
+                    <td>内网信息读取 + 外网连通</td>
+                    <td>非知识库定位，主要用于读取；可连通内外网；浏览器操控能力强</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p>多平台打通是趋势，内外网信息协同是长期目标。</p>
+        
+        <h2>海量信息的批量处理</h2>
+        <p>通过 Codebuddy / Workbuddy 读取本地文件夹：</p>
+        <ul>
+            <li>批量去除重复文件</li>
+            <li>批量给文件重命名（文件名加创建时间）</li>
+            <li>给出文件分类建议</li>
+            <li>文字信息转 MD 格式（单文件和批量文件夹）</li>
+            <li>PPT 视觉化理解与转述（这个需求非常大，正探索中）</li>
+        </ul>
+        <p><strong>这类 Skill 需求量很大，正在探索中。</strong></p>
+    </div>
+    
+    <div class="pagination">
+        <a href="page5.html">← 上一页</a>
+        <a href="page7.html">下一页 →</a>
+    </div>
+</body>
+</html>
