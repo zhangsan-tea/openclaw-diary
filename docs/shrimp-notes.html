@@ -16,13 +16,65 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
+            display: flex;
+            min-height: 100vh;
         }
         
-        .container {
+        /* 侧边导航栏 */
+        .sidebar {
+            width: 250px;
+            background: white;
+            padding: 20px 15px;
+            border-right: 1px solid #eee;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+        
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .nav-list {
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-bottom: 8px;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover {
+            background-color: #f0f8ff;
+            color: #3498db;
+        }
+        
+        .nav-link.active {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            flex: 1;
+            padding: 20px;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            min-height: 100vh;
         }
         
         .content {
@@ -109,33 +161,61 @@
             background-color: #f9f9f9;
         }
         
-        /* 导航栏样式 */
-        .navbar {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+        /* 章节导航按钮 */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
         }
         
-        .chapter-select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
-            background-color: #f8f9fa;
-            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
         
-        .chapter-select:focus {
-            outline: 2px solid #3498db;
+        .nav-btn:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
+        
+        .nav-btn.prev {
+            background-color: #95a5a6;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #7f8c8d;
         }
         
         /* 移动端优化 */
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                max-height: 300px;
+            }
+            
+            .sidebar h2 {
+                text-align: left;
+            }
+            
+            .main-content {
+                padding: 15px;
             }
             
             .content {
@@ -149,31 +229,30 @@
             h2 {
                 font-size: 1.2em;
             }
-            
-            .chapter-select {
-                font-size: 16px; /* 防止iOS缩放 */
-            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="navbar">
-            <select class="chapter-select" id="chapterSelect">
-                <option value="intro">版本迭代说明</option>
-                <option value="chapter1">一、认识龙虾</option>
-                <option value="chapter2">二、工具选择</option>
-                <option value="chapter3">三、安全问题</option>
-                <option value="chapter4">四、Token消耗</option>
-                <option value="chapter5">五、使用场景</option>
-                <option value="chapter6">六、待探索方向</option>
-                <option value="chapter7">七、基本原则汇总</option>
-                <option value="appendix">附录：用户深层感受与系统架构思考</option>
-                <option value="skills">附：自研技能清单</option>
-                <option value="conclusion">结语</option>
-            </select>
-        </div>
-        
+    <!-- 侧边导航栏 -->
+    <div class="sidebar">
+        <h2>📖 养虾笔记 v2.3</h2>
+        <ul class="nav-list" id="navList">
+            <li class="nav-item"><a href="#intro" class="nav-link active" data-chapter="intro">版本迭代说明</a></li>
+            <li class="nav-item"><a href="#chapter1" class="nav-link" data-chapter="chapter1">一、认识龙虾</a></li>
+            <li class="nav-item"><a href="#chapter2" class="nav-link" data-chapter="chapter2">二、工具选择</a></li>
+            <li class="nav-item"><a href="#chapter3" class="nav-link" data-chapter="chapter3">三、安全问题</a></li>
+            <li class="nav-item"><a href="#chapter4" class="nav-link" data-chapter="chapter4">四、Token消耗</a></li>
+            <li class="nav-item"><a href="#chapter5" class="nav-link" data-chapter="chapter5">五、使用场景</a></li>
+            <li class="nav-item"><a href="#chapter6" class="nav-link" data-chapter="chapter6">六、待探索方向</a></li>
+            <li class="nav-item"><a href="#chapter7" class="nav-link" data-chapter="chapter7">七、基本原则汇总</a></li>
+            <li class="nav-item"><a href="#appendix" class="nav-link" data-chapter="appendix">附录：用户深层感受与系统架构思考</a></li>
+            <li class="nav-item"><a href="#skills" class="nav-link" data-chapter="skills">附：自研技能清单</a></li>
+            <li class="nav-item"><a href="#conclusion" class="nav-link" data-chapter="conclusion">结语</a></li>
+        </ul>
+    </div>
+    
+    <!-- 主内容区域 -->
+    <div class="main-content">
         <div class="content" id="content">
             <!-- 内容将通过JavaScript动态加载 -->
         </div>
@@ -242,6 +321,12 @@
                     <li><strong>新增核心章节</strong>：关键设置、聊天软件选择、安全、知识管理等独立章节</li>
                     <li><strong>提炼核心原则</strong>：首次系统性提出"需求驱动/好奇驱动"、"责任不外包"、"意图比流程重要"等基本原则</li>
                 </ul>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <span></span>
+                    <a href="#chapter1" class="nav-btn" onclick="navigateToChapter('chapter1')">下一章 →</a>
+                </div>
             `,
             chapter1: `
                 <h1>一、认识龙虾</h1>
@@ -336,6 +421,12 @@
                     <li><strong>好奇驱动</strong>——探索新可能，试探工具能力边界</li>
                     <li>不建议<strong>系统学习</strong>：专业深、迭代快、难坚持</li>
                 </ul>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#intro" class="nav-btn prev" onclick="navigateToChapter('intro')">← 上一章</a>
+                    <a href="#chapter2" class="nav-btn" onclick="navigateToChapter('chapter2')">下一章 →</a>
+                </div>
             `,
             chapter2: `
                 <h1>二、工具选择</h1>
@@ -523,6 +614,12 @@
                     </tbody>
                 </table>
                 <p><strong>教训</strong>：SOUL.md在workspace里，不在agent配置目录里，一开始找错过位置。</p>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#chapter1" class="nav-btn prev" onclick="navigateToChapter('chapter1')">← 上一章</a>
+                    <a href="#chapter3" class="nav-btn" onclick="navigateToChapter('chapter3')">下一章 →</a>
+                </div>
             `,
             chapter3: `
                 <h1>三、安全问题</h1>
@@ -559,6 +656,12 @@
                     <li>calendar-reminder、edgeone-clawscan、token-optimizer</li>
                     <li>weekly-report-editing、2month-report、audio-understanding</li>
                 </ul>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#chapter2" class="nav-btn prev" onclick="navigateToChapter('chapter2')">← 上一章</a>
+                    <a href="#chapter4" class="nav-btn" onclick="navigateToChapter('chapter4')">下一章 →</a>
+                </div>
             `,
             chapter4: `
                 <h1>四、Token消耗</h1>
@@ -667,6 +770,12 @@
                         </tr>
                     </tbody>
                 </table>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#chapter3" class="nav-btn prev" onclick="navigateToChapter('chapter3')">← 上一章</a>
+                    <a href="#chapter5" class="nav-btn" onclick="navigateToChapter('chapter5')">下一章 →</a>
+                </div>
             `,
             chapter5: `
                 <h1>五、使用场景</h1>
@@ -893,6 +1002,12 @@
                 <p>工具谱系（还原度递减、加工度提升）：<strong>豆包输入法 → 微信输入法 → SaySo → Typeless</strong></p>
                 <p>越往后越"模糊智能"，对原话改动越多。大部分时候模糊输入就够了，它能理解。</p>
                 <p><strong>原则：不要在不必要的事情上消耗心力，保持流畅。</strong></p>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#chapter4" class="nav-btn prev" onclick="navigateToChapter('chapter4')">← 上一章</a>
+                    <a href="#chapter6" class="nav-btn" onclick="navigateToChapter('chapter6')">下一章 →</a>
+                </div>
             `,
             chapter6: `
                 <h1>六、待探索方向</h1>
@@ -913,6 +1028,12 @@
                     <li>知识转化入库实战：ppt-to-text优化，视频+PPT知识提取</li>
                     <li>系统架构师视角：从工具使用者到体系架构师的完整转型路径</li>
                 </ul>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#chapter5" class="nav-btn prev" onclick="navigateToChapter('chapter5')">← 上一章</a>
+                    <a href="#chapter7" class="nav-btn" onclick="navigateToChapter('chapter7')">下一章 →</a>
+                </div>
             `,
             chapter7: `
                 <h1>七、基本原则汇总（v1.8重大扩展）</h1>
@@ -943,6 +1064,12 @@
                     <li><strong>不要用自己的想法套住模型</strong>——先丢给 AI 看规律，有新发现再叠加（v2.3新增）</li>
                     <li><strong>结构壳也是能力</strong>——AI 能力的几个层次中，龙虾外面的结构壳（Harness）本身也是极强的能力扩展（v2.3新增）</li>
                 </ul>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#chapter6" class="nav-btn prev" onclick="navigateToChapter('chapter6')">← 上一章</a>
+                    <a href="#appendix" class="nav-btn" onclick="navigateToChapter('appendix')">下一章 →</a>
+                </div>
             `,
             appendix: `
                 <h1>附录：用户深层感受与系统架构思考（v2.1新增）</h1>
@@ -980,6 +1107,12 @@
                 </ul>
 
                 <p><strong>这些感受都指向一个共同的主题：正在从一个AI工具使用者，转变为一个AI工作体系的架构师。</strong></p>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#chapter7" class="nav-btn prev" onclick="navigateToChapter('chapter7')">← 上一章</a>
+                    <a href="#skills" class="nav-btn" onclick="navigateToChapter('skills')">下一章 →</a>
+                </div>
             `,
             skills: `
                 <h1>附：自研技能清单（v2.3更新）</h1>
@@ -1002,6 +1135,12 @@
                     <li><strong>health-automation</strong>：健康数据自动化管理</li>
                     <li><strong>edgeone-clawscan</strong>：安全体检扫描助手</li>
                 </ul>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#appendix" class="nav-btn prev" onclick="navigateToChapter('appendix')">← 上一章</a>
+                    <a href="#conclusion" class="nav-btn" onclick="navigateToChapter('conclusion')">下一章 →</a>
+                </div>
             `,
             conclusion: `
                 <h1>结语</h1>
@@ -1010,32 +1149,84 @@
                 <p>— 李诞</p>
 
                 <p><strong>"一起探索：如何在安全边界内，最大化AI助手的价值"</strong></p>
+                
+                <!-- 章节导航 -->
+                <div class="chapter-nav">
+                    <a href="#skills" class="nav-btn prev" onclick="navigateToChapter('skills')">← 上一章</a>
+                    <span></span>
+                </div>
             `
         };
 
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
-            const select = document.getElementById('chapterSelect');
+            const navLinks = document.querySelectorAll('.nav-link');
             const content = document.getElementById('content');
             
             // 加载默认章节（版本迭代说明）
             content.innerHTML = chapters.intro;
             
-            // 绑定选择事件
-            select.addEventListener('change', function() {
-                const selectedChapter = this.value;
-                content.innerHTML = chapters[selectedChapter] || '';
-                
-                // 滚动到顶部
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+            // 绑定导航点击事件
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const chapter = this.getAttribute('data-chapter');
+                    
+                    // 更新激活状态
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 加载内容
+                    content.innerHTML = chapters[chapter] || '';
+                    
+                    // 滚动到顶部
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
                 });
             });
             
-            // 移动端优化：防止iOS缩放
-            select.style.fontSize = '16px';
+            // 页面内锚点跳转处理
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash.substring(1);
+                if (chapters[hash]) {
+                    // 更新侧边栏激活状态
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('data-chapter') === hash) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                    
+                    // 加载内容
+                    content.innerHTML = chapters[hash];
+                }
+            });
+            
+            // 初始化：检查URL是否有hash
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                if (chapters[hash]) {
+                    content.innerHTML = chapters[hash];
+                    // 更新侧边栏激活状态
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('data-chapter') === hash) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }
         });
+        
+        // 章节导航函数
+        function navigateToChapter(chapter) {
+            window.location.hash = chapter;
+            // 手动触发hashchange以确保内容更新
+            const event = new Event('hashchange');
+            window.dispatchEvent(event);
+        }
     </script>
 </body>
 </html>
